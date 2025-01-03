@@ -1,0 +1,3 @@
+com\devdojo\core\repositories\CourserRepository.class
+com\devdojo\core\entities\Course.class
+com\devdojo\core\entities\Course$CourseBuilder.class
