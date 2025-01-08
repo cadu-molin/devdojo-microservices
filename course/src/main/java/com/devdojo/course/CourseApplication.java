@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EntityScan({"com.devdojo.core.entities"})
 @EnableJpaRepositories({"com.devdojo.core.repositories"})
-public class MicroservicesApplication {
+public class CourseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroservicesApplication.class, args);
+		SpringApplication.run(CourseApplication.class, args);
 	}
 
 }
