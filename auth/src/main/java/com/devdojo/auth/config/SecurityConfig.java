@@ -1,5 +1,6 @@
 package com.devdojo.auth.config;
 
+import com.devdojo.auth.filter.JwtUsernameAndPasswordAuthenticationFilter;
 import com.devdojo.core.config.JwtConfiguration;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.context.annotation.Bean;
@@ -36,6 +37,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(exceptions -> exceptions.authenticationEntryPoint((req, resp, e) -> resp.sendError(HttpServletResponse.SC_UNAUTHORIZED)))
+                .addFilter(new JwtUsernameAndPasswordAuthenticationFilter())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(jwtConfiguration.getLoginUrl()).permitAll()
                         .requestMatchers("/course/admin/**").hasRole("ADMIN")
